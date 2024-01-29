@@ -1,11 +1,24 @@
-import { useParams, Outlet } from "react-router-dom";
+import { useParams, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMovieDetails } from "../components/tmdbAPI";
 import MovieDetails from "../components/MovieDetails/MovieDetails";
+import GoBack from "../components/GoBack/GoBack";
 
 export default function MovieDetailsPage({ toggleLoading, toggleError }) {
   const [movieDetails, setMovieDetails] = useState(undefined);
   const { movieId } = useParams();
+  const [previousPage, setPreviousPage] = useState(null);
+  const location = useLocation();
+  if (location.state) {
+    if (previousPage !== location.state.from) {
+      setPreviousPage(location.state.from);
+    }
+  }
+
+  const goToURL = useNavigate();
+  function goBack() {
+    goToURL(previousPage);
+  }
 
   useEffect(() => {
     async function fetchMoviesDetails() {
@@ -25,6 +38,7 @@ export default function MovieDetailsPage({ toggleLoading, toggleError }) {
 
   return (
     <>
+      {previousPage && <GoBack handleClick={goBack} />}
       {movieDetails && <MovieDetails movieDetails={movieDetails} />}
 
       <Outlet />

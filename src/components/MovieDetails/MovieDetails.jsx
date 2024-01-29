@@ -11,19 +11,26 @@ export default function MovieDetails({ movieDetails }) {
 
   return (
     <>
-      <img
-        src={getPosterURL(movieDetails.poster_path)}
-        alt={movieDetails.titel}
-      />
-      <h1>
-        {movieDetails.title} ({movieDetails.release_date.slice(0, 4)})
-      </h1>
-      <p>User Score: {Math.round(movieDetails.vote_average * 10)}%</p>
-      <h2>Overview</h2>
-      <p>{movieDetails.overview}</p>
-      <h3>Genres</h3>
-      <p>{printGenres(movieDetails.genres)}</p>
-      <nav>
+      <div className={css.movieDetails}>
+        <img
+          src={getPosterURL(movieDetails.poster_path)}
+          alt={movieDetails.titel}
+        />
+        <div>
+          <h1 className={css.marginBottom}>
+            {movieDetails.title} ({movieDetails.release_date.slice(0, 4)})
+          </h1>
+          <p className={css.marginBottom}>
+            User Score: {Math.round(movieDetails.vote_average * 10)}%
+          </p>
+          <h2 className={css.marginBottom}>Overview</h2>
+          <p className={css.marginBottom}>{movieDetails.overview}</p>
+          <h3 className={css.marginBottom}>Genres</h3>
+          <p>{printGenres(movieDetails.genres)}</p>
+        </div>
+      </div>
+      <hr className={css.line} />
+      <nav className={css.navblock}>
         <p>Additional information</p>
         <ul>
           <li>
@@ -34,6 +41,7 @@ export default function MovieDetails({ movieDetails }) {
           </li>
         </ul>
       </nav>
+      <hr className={css.line} />
     </>
   );
 }

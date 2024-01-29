@@ -5,14 +5,16 @@ export default function SearchMovie({ handleSubmit }) {
     event.preventDefault();
     const form = event.target;
     const filter = form.elements.filter.value;
-    handleSubmit(filter);
+    handleSubmit({ query: filter.trim() });
     form.reset();
   }
 
   return (
-    <form onSubmit={formSubmit}>
-      <input type="text" name="filter" />
-      <button type="submit">Search</button>
+    <form onSubmit={formSubmit} className={css.searchForm}>
+      <input type="text" name="filter" className={css.filter} />
+      <button type="submit" className={css.button}>
+        Search
+      </button>
     </form>
   );
 }

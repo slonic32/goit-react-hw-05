@@ -30,7 +30,7 @@ export default function MovieReviews({ toggleLoading, toggleError }) {
         <ul>
           {movieReviews.map((item) => {
             return (
-              <li key={item.id}>
+              <li key={item.id} className={css.listItem}>
                 <Review review={item} />
               </li>
             );

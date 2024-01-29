@@ -41,7 +41,7 @@ async function getMovieReviews(id) {
 
 async function getMovies(filter) {
   const movies = await axios.get(
-    `https://api.themoviedb.org/3/search/movie?query=${filter.trim()}&${MOVIELANGUAGE}&${MOVIEKEY}&page=1`
+    `https://api.themoviedb.org/3/search/movie?query=${filter}&${MOVIELANGUAGE}&${MOVIEKEY}&page=1`
   );
   return movies.data.results;
 }

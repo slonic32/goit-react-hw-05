@@ -5,9 +5,13 @@ export default function Actor({ actor }) {
   return (
     <>
       {actor.profile_path && (
-        <img src={getProfileURL(actor.profile_path)} alt={actor.name} />
+        <img
+          src={getProfileURL(actor.profile_path)}
+          alt={actor.name}
+          className={css.image}
+        />
       )}
-      <p>{actor.name}</p>
+      <p className={css.actor}>{actor.name}</p>
       <p>Character: {actor.character}</p>
     </>
   );

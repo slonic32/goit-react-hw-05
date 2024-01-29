@@ -29,7 +29,7 @@ export default function MovieCast({ toggleLoading, toggleError }) {
     <ul>
       {movieCredits.map((item) => {
         return (
-          <li key={item.credit_id}>
+          <li key={item.credit_id} className={css.listItem}>
             <Actor actor={item} />
           </li>
         );

@@ -31,7 +31,6 @@ a {
 }
 
 a:active,
-a:focus,
 a.active {
   color: red;
 }
