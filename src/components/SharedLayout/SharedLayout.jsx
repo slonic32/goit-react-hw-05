@@ -7,12 +7,14 @@ export default function SharedLayout() {
     <>
       <header className={css.header}>
         <div className={css.container}>
-          <NavLink to="/" className={css.headerLink}>
-            Home
-          </NavLink>
-          <NavLink to="/movies" className={css.headerLink}>
-            Movies
-          </NavLink>
+          <nav>
+            <NavLink to="/" className={css.headerLink}>
+              Home
+            </NavLink>
+            <NavLink to="/movies" className={css.headerLink}>
+              Movies
+            </NavLink>
+          </nav>
         </div>
       </header>
       <main>

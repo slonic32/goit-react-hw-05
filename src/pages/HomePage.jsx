@@ -20,12 +20,12 @@ export default function HomePage({ toggleLoading, toggleError }) {
       }
     }
     fetchMovies();
-  }, []);
+  }, [toggleLoading, toggleError]);
 
   return (
     <>
       <h1 className={css.header}>Tranding today</h1>
-      <MovieList tranding={trandingMovies} />
+      <MovieList movieList={trandingMovies} />
     </>
   );
 }

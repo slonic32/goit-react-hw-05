@@ -25,10 +25,39 @@ export default function App() {
                 <HomePage toggleLoading={setLoading} toggleError={setError} />
               }
             />
-            <Route path="/movies" element={<MoviesPage />} />
-            <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-              <Route path="cast" element={<MovieCast />} />
-              <Route path="reviews" element={<MovieReviews />} />
+            <Route
+              path="/movies"
+              element={
+                <MoviesPage toggleLoading={setLoading} toggleError={setError} />
+              }
+            />
+            <Route
+              path="/movies/:movieId"
+              element={
+                <MovieDetailsPage
+                  toggleLoading={setLoading}
+                  toggleError={setError}
+                />
+              }
+            >
+              <Route
+                path="cast"
+                element={
+                  <MovieCast
+                    toggleLoading={setLoading}
+                    toggleError={setError}
+                  />
+                }
+              />
+              <Route
+                path="reviews"
+                element={
+                  <MovieReviews
+                    toggleLoading={setLoading}
+                    toggleError={setError}
+                  />
+                }
+              />
             </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
