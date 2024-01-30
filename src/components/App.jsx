@@ -1,11 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { lazy } from "react";
 import SharedLayout from "./SharedLayout/SharedLayout";
-import HomePage from "../pages/HomePage";
-import MoviesPage from "../pages/MoviesPage";
-import MovieDetailsPage from "../pages/MovieDetailsPage";
-import MovieCast from "./MovieCast/MovieCast";
-import MovieReviews from "./MovieReviews/MovieReviews";
-import NotFound from "../pages/NotFound";
+const HomePage = lazy(() => import("../pages/HomePage.jsx"));
+
+const MoviesPage = lazy(() => import("../pages/MoviesPage"));
+const MovieDetailsPage = lazy(() => import("../pages/MovieDetailsPage"));
+const MovieCast = lazy(() => import("./MovieCast/MovieCast"));
+const MovieReviews = lazy(() => import("./MovieReviews/MovieReviews"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 import Loader from "./Loader/Loader";
 import Error from "./Error/Error";
 import { useState } from "react";

@@ -1,5 +1,5 @@
 import { useParams, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { getMovieDetails } from "../components/tmdbAPI";
 import MovieDetails from "../components/MovieDetails/MovieDetails";
 import GoBack from "../components/GoBack/GoBack";
@@ -40,8 +40,9 @@ export default function MovieDetailsPage({ toggleLoading, toggleError }) {
     <>
       {previousPage && <GoBack handleClick={goBack} />}
       {movieDetails && <MovieDetails movieDetails={movieDetails} />}
-
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
